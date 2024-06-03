@@ -1,0 +1,15 @@
+[app]
+country_code = ""
+name = ""
+timezone = ""
+min_orders_count = 60
+
+[message_queue]
+url = ""
+
+[dodo_is]
+timeout = 60
+
+[auth_credentials_storage]
+timeout = 60
+base_url = ""
