@@ -35,8 +35,6 @@ class StateStorage:
             phone_number,
             unit_name,
             count,
-            phone_number,
-            unit_name,
             count,
         )
         cursor.execute(statement, parameters)
