@@ -14,5 +14,5 @@ class Period:
     @classmethod
     def today(cls, timezone: ZoneInfo | None = None) -> Self:
         now = datetime.now(timezone)
-        end = now.replace(hour=0, minute=0, second=0, microsecond=0)
-        return cls(start=now, end=end)
+        start = now.replace(hour=0, minute=0, second=0, microsecond=0)
+        return cls(start=start, end=now)
