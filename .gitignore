@@ -162,3 +162,4 @@ cython_debug/
 #.idea/
 
 config.toml
+state_storage.db
