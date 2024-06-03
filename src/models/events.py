@@ -18,5 +18,5 @@ class EventPayload(BaseModel):
 
 class Event(BaseModel):
     unit_ids: list[int]
-    type: str = Field(default='CANCELED_ORDERS', frozen=True)
+    type: str = Field(default='CHEATED_PHONE_NUMBERS', frozen=True)
     payload: EventPayload
