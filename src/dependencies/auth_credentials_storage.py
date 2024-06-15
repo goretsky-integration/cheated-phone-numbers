@@ -15,12 +15,12 @@ __all__ = (
 )
 
 
-def get_auth_credentials_storage_http_client(
+async def get_auth_credentials_storage_http_client(
         config: Config = Depends(load_config),
 ) -> AuthCredentialsStorageHttpClient:
-    with httpx.Client(
-        base_url=config.auth_credentials_storage.base_url,
-        timeout=config.auth_credentials_storage.timeout,
+    async with httpx.Client(
+            base_url=config.auth_credentials_storage.base_url,
+            timeout=config.auth_credentials_storage.timeout,
     ) as http_client:
         yield AuthCredentialsStorageHttpClient(http_client)
 

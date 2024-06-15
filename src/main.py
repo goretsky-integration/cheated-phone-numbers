@@ -57,7 +57,6 @@ async def main(
         )
 
     new_events = await cheated_orders_state_manager.filter(events)
-    print(new_events)
     await publish_events(broker=broker, events=new_events)
     await cheated_orders_state_manager.save(events)
 

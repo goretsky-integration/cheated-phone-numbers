@@ -13,11 +13,11 @@ __all__ = (
 )
 
 
-def get_dodo_is_http_client(
+async def get_dodo_is_http_client(
         config: Config = Depends(load_config),
 ) -> DodoIsHttpClient:
     base_url = f'https://officemanager.dodopizza.{config.country_code}'
-    with httpx.Client(
+    async with httpx.Client(
             timeout=config.dodo_is_http_client_timeout,
             base_url=base_url,
     ) as http_client:

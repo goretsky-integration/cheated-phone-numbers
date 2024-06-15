@@ -8,4 +8,4 @@ AuthCredentialsStorageHttpClient = NewType(
     'AuthCredentialsStorageHttpClient',
     httpx.Client,
 )
-DodoIsHttpClient = NewType('DodoIsHttpClient', httpx.Client)
+DodoIsHttpClient = NewType('DodoIsHttpClient', httpx.AsyncClient)

@@ -11,7 +11,7 @@ class DodoIsConnection:
     def __init__(self, http_client: DodoIsHttpClient):
         self.__http_client = http_client
 
-    def get_orders(
+    async def get_orders(
             self,
             *,
             unit_ids: Iterable[int],
@@ -28,7 +28,7 @@ class DodoIsConnection:
             'endDate': end.strftime('%d.%m.%Y'),
             'orderTypes': ['Delivery', 'Pickup', 'Stationary']
         }
-        response = self.__http_client.post(
+        response = await self.__http_client.post(
             url=url,
             data=request_data,
             cookies=dict(cookies),
