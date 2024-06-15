@@ -8,16 +8,12 @@ from enums import CountryCode
 __all__ = (
     'UNITS_FILE_PATH',
     'CONFIG_FILE_PATH',
-    'STATE_STORAGE_FILE_PATH',
     'load_config',
     'Config',
 )
 
 UNITS_FILE_PATH = pathlib.Path(__file__).parent.parent / 'accounts_units.json'
 CONFIG_FILE_PATH = pathlib.Path(__file__).parent.parent / 'config.toml'
-STATE_STORAGE_FILE_PATH = (
-        pathlib.Path(__file__).parent.parent / 'state_storage.db'
-)
 
 
 @dataclass(frozen=True, slots=True)
@@ -34,6 +30,7 @@ class Config:
     message_queue_url: str
     min_orders_count: int
     dodo_is_http_client_timeout: int | float
+    redis_url: str
     auth_credentials_storage: AuthCredentialsStorageConfig
 
 
@@ -47,6 +44,7 @@ def load_config(file_path: pathlib.Path = CONFIG_FILE_PATH) -> Config:
     country_code = CountryCode(config['app']['country_code'].lower())
     min_orders_count = config['app']['min_orders_count']
     dodo_is_timeout = config['dodo_is']['timeout']
+    redis_url = config['redis']['url']
     auth_credentials_storage = AuthCredentialsStorageConfig(
         timeout=config['auth_credentials_storage']['timeout'],
         base_url=config['auth_credentials_storage']['base_url'],
@@ -58,6 +56,7 @@ def load_config(file_path: pathlib.Path = CONFIG_FILE_PATH) -> Config:
         country_code=country_code,
         message_queue_url=message_queue_url,
         min_orders_count=min_orders_count,
+        redis_url=redis_url,
         dodo_is_http_client_timeout=dodo_is_timeout,
         auth_credentials_storage=auth_credentials_storage,
     )
