@@ -62,4 +62,5 @@ class CheatedOrdersStateManager:
                 phone_number=event.payload.phone_number
             )
             value = len(event.payload.orders)
-            await self.__redis_client.set(key, value, exat=reset_time)
+            await self.__redis_client.set(key, value)
+            await self.__redis_client.expireat(key, reset_time)
