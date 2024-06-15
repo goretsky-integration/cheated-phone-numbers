@@ -6,6 +6,6 @@ __all__ = ('AuthCredentialsStorageHttpClient', 'DodoIsHttpClient')
 
 AuthCredentialsStorageHttpClient = NewType(
     'AuthCredentialsStorageHttpClient',
-    httpx.Client,
+    httpx.AsyncClient,
 )
 DodoIsHttpClient = NewType('DodoIsHttpClient', httpx.AsyncClient)

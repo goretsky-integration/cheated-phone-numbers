@@ -17,6 +17,6 @@ class EventPayload(BaseModel):
 
 
 class Event(BaseModel):
-    unit_ids: list[int]
+    unit_ids: int
     type: str = Field(default='CHEATED_PHONE_NUMBERS', frozen=True)
     payload: EventPayload

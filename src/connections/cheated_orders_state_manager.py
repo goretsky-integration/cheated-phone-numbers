@@ -45,7 +45,7 @@ class CheatedOrdersStateManager:
             )
             count = await self.__redis_client.get(key) or 0
 
-            if len(event.payload.orders) <= count:
+            if len(event.payload.orders) <= int(count):
                 continue
 
             result.append(event)
