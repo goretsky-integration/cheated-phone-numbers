@@ -23,10 +23,10 @@ class DodoIsConnection:
         request_data = {
             'filterType': 'OrdersFromRestaurant',
             'unitsIds': tuple(unit_ids),
-            'OrderSources': 'Restaurant',
+            'OrderSources': ['Restaurant', 'Pizzeria'],
             'beginDate': start.strftime('%d.%m.%Y'),
             'endDate': end.strftime('%d.%m.%Y'),
-            'orderTypes': ['Delivery', 'Pickup', 'Stationary']
+            'orderTypes': ['Stationary']
         }
         response = await self.__http_client.post(
             url=url,
