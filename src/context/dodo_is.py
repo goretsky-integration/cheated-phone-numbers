@@ -34,7 +34,7 @@ class OrdersFetcher:
 
     def __init__(self, connection: DodoIsConnection):
         self.__connection = connection
-        self.__tasks_registry: list[AccountCookiesAndUnits, ...] = []
+        self.__tasks_registry: list[AccountCookiesAndUnits] = []
 
     def register_task(
             self,

@@ -1,5 +1,6 @@
 from collections.abc import Iterable, Mapping
 from datetime import datetime
+from uuid import UUID
 
 from new_types import DodoIsHttpClient
 
@@ -14,7 +15,7 @@ class DodoIsConnection:
     async def get_orders(
             self,
             *,
-            unit_ids: Iterable[int],
+            unit_ids: Iterable[UUID],
             start: datetime,
             end: datetime,
             cookies: Mapping[str, str],
@@ -22,7 +23,7 @@ class DodoIsConnection:
         url = '/Reports/Orders/Get'
         request_data = {
             'filterType': 'OrdersFromRestaurant',
-            'unitsIds': tuple(unit_ids),
+            'unitsIds': [unit_id.hex for unit_id in unit_ids],
             'OrderSources': ['Restaurant', 'Pizzeria'],
             'beginDate': start.strftime('%d.%m.%Y'),
             'endDate': end.strftime('%d.%m.%Y'),

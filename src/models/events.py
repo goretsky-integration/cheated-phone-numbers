@@ -1,4 +1,5 @@
 from datetime import datetime
+from uuid import UUID
 
 from pydantic import BaseModel, Field
 
@@ -17,6 +18,6 @@ class EventPayload(BaseModel):
 
 
 class Event(BaseModel):
-    unit_ids: int
+    unit_ids: UUID
     type: str = Field(default='CHEATED_PHONE_NUMBERS', frozen=True)
     payload: EventPayload
