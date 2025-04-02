@@ -163,3 +163,5 @@ cython_debug/
 
 config.toml
 state_storage.db
+
+**/.DS_Store
